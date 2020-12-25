@@ -1,8 +1,14 @@
 <template>
-  <menu-section></menu-section>
+<div class="h-screen bg-gray-700 text-gray-100">
+  <div class="container">
+    <menu-section></menu-section>
   <stats-section></stats-section>
   <text-section></text-section>
   <keyboard-section></keyboard-section> 
+  </div>
+</div>
+  
+  
 </template>
 
 <script>
