@@ -1,6 +1,6 @@
 <template>
   <section class="container mx-auto">
-    <p>Keyboard</p>
+    <p>Keyboard Test</p>
     <div class="p-2 border-2 bg-grey-400">
       <div class="flex space-x-4">
         <div class="p-4 border-2 border-gray-500 rounded-md " :class="{ active: keysActive[81] }">Q</div>
