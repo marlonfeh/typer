@@ -1,6 +1,6 @@
 <template>
 <div class="h-screen bg-gray-700 text-gray-100">
-  <div class="container">
+  <div class="container mx-auto">
     <menu-section></menu-section>
   <stats-section></stats-section>
   <text-section></text-section>

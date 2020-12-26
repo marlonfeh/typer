@@ -54,10 +54,7 @@ export default {
   data(){
       return {
           keysActive:{
-              81: false,
-              87: false,
-              69: true,
-              name: true
+              
           }
       }
   },
