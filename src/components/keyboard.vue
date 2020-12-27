@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto">
+  <section class="mx-auto">
     <p>Keyboard Test</p>
     <div class="p-2 border-2 bg-grey-400">
       <div class="flex space-x-4">
@@ -103,6 +103,6 @@ export default {
 <style scoped>
 .active{
     @apply bg-gray-100;
-    @apply text-gray-800
+    @apply text-gray-800;
 }
 </style>
