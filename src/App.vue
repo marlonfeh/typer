@@ -24,7 +24,11 @@ export default {
     StatsSection,
     TextSection,
     KeyboardSection
-  }
+  },
+  created() {
+   //Set random Text, set text id 
+   
+  },
 }
 </script>
 

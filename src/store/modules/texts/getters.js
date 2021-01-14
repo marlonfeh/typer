@@ -1,5 +1,5 @@
 export default {
     texts(state) {
-        return state.texts;
+        return state.texts[0];
       },
 };

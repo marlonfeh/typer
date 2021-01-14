@@ -53,49 +53,44 @@ export default {
   name: 'Keyboard',
   data(){
       return {
-          keysActive:{
-              
-          }
+          keysActive:{}
       }
   },
   methods: {
-    turnActive(keycode){
-        console.log(keycode)
+    keyDownEvent(e) {
+      console.log(e.keyCode)
 
-        console.log(this.keysActive[keycode])
+      this.keysActive[e.keyCode] = true
 
+      console.log(this.keysActive[e.keyCode])
     },
-	doCommand(e) {
-        //let cmd = String.fromCharCode(e.keyCode).toLowerCase();
-        
-        console.log(e.keyCode)
+  keyUpEvent(e) {
+      this.keysActive[e.keyCode] = false
 
-        this.turnActive(e.keyCode)
+      let convertedKey = this.convertCodeToString(e.keyCode)
 
+      this.$store.dispatch('setCurrentKey', e.keyCode)
+      this.$store.dispatch('setCurrentChar', convertedKey)
+      this.$store.dispatch('checkCurrentChar')
 
-        //console.log(this.keysActive[e.keyCode])
-
-
-        this.keysActive[e.keyCode] = true
-
-        console.log(this.keysActive[e.keyCode])
-
-        //Zusammenlegen?
-
-        //emit OR vuex for text comparison
-        },
-    
-    doCommand2(e) {
-        //let cmd = String.fromCharCode(e.keyCode).toLowerCase();
-        
-        console.log(e.keyCode)
-
-        this.keysActive[e.keyCode] = false
-        }
+      console.log(e.keyCode)
+      console.log(convertedKey)
     },
+    convertCodeToString(currentKey){
+      return this.getKeyCodeTable[currentKey]
+    },
+  },
+  computed: {
+    getKeyCodeTable(){
+        return this.$store.state.keyCodeTable
+    },
+    getCurrentKey(){
+        return this.$store.state.currentKey
+    },
+  },
   created() {
-    window.addEventListener('keydown', this.doCommand);
-    window.addEventListener('keyup', this.doCommand2);
+    window.addEventListener('keydown', this.keyDownEvent);
+    window.addEventListener('keyup', this.keyUpEvent);
   },
 }
 </script>

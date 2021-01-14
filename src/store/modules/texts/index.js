@@ -9,17 +9,9 @@ export default {
       texts: [
         {
           id: 't1',
+          lang: "en",
           wordCount: 3,
-          text: [
-            ["t","e","s","t"],
-            ["w","o","r","d"],
-            ["o","b","j","e","c","t"]
-          ],
-        },
-        {
-          id: 't2',
-          wordCount: 3,
-          text: "test word object"
+          text: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"]
         },
       ]
     };
