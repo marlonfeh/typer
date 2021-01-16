@@ -13,6 +13,7 @@ const store = createStore({
       currentKey: null,
       currentChar: null,
       currentIndex: 0,
+      currentTextLength: null,
       currentTextID: "t1",
       currentText: ["t","e","s","t"," ","w","o","r","d"," ","o","b","j","e","c","t"],
       keyCodeTable: {
@@ -61,9 +62,20 @@ const store = createStore({
     },
     currentText(state){
       return state.currentText;
+    },
+    currentTextLength(state){
+      return state.currentTextLength;
     }
   },
   actions: {
+    setCurrentTextLength(context){
+      const currentText = context.getters.currentText
+      let currentTextLength = currentText.length - 1
+
+      console.log(currentTextLength)
+
+      context.commit('setCurrentTextLength', currentTextLength)
+    },
     setCurrentKey (context, data) {
       context.commit('setCurrentKey', data);
     },
@@ -80,29 +92,51 @@ const store = createStore({
       
       let currentChar = context.getters.currentChar
       let currentIndex = context.getters.currentIndex
+      let currentTextLength = context.getters.currentTextLength
       let currentNeededChar = context.getters.currentText[currentIndex]
       
       
       if(currentChar === currentNeededChar){
         console.log(true)
         context.commit('incrementIndex')
-      } else {
+        if (currentIndex === currentTextLength) {
+          console.log("finished")
+          context.commit('resetIndex')
+          context.dispatch('setNewText')
+        }
+      }  else {
         console.log(false)
       }
 
+      console.log(currentIndex)
       console.log(currentNeededChar)
+      console.log(currentTextLength)
+    },
+    setNewText(context){
+      //Implement Function to choose text generation method
+      context.commit('setRandomText')
     }
   },
   mutations: {
+    setCurrentTextLength(state, payload){
+      state.currentTextLength = payload
+      //console.log(state.currentTextLength)
+    },
     incrementIndex (state) {
-        state.currentIndex++
+      state.currentIndex++
+    },
+    resetIndex(state){
+      state.currentIndex = 0
     },
     setCurrentKey (state, payload) {
-        state.currentKey = payload;
+      state.currentKey = payload;
     },
     setCurrentChar (state, payload) {
       state.currentChar = payload;
-  }
+    },
+    setRandomText(){
+      console.log('Not yet implemented')
+    }
   }
 });
 

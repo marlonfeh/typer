@@ -1,14 +1,12 @@
 <template>
-<div class="h-screen bg-gray-700 text-gray-100">
-  <div class="container mx-auto">
-    <menu-section></menu-section>
-  <stats-section></stats-section>
-  <text-section></text-section>
-  <keyboard-section></keyboard-section> 
+  <div class="h-screen bg-gray-700 text-gray-100">
+    <div class="container mx-auto">
+      <menu-section></menu-section>
+    <stats-section></stats-section>
+    <text-section></text-section>
+    <keyboard-section></keyboard-section> 
+    </div>
   </div>
-</div>
-  
-  
 </template>
 
 <script>
@@ -26,8 +24,8 @@ export default {
     KeyboardSection
   },
   created() {
-   //Set random Text, set text id 
-   
+    //Set random Text, set text id
+    this.$store.dispatch('setCurrentTextLength')
   },
 }
 </script>
