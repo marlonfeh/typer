@@ -14,8 +14,9 @@ const store = createStore({
       currentChar: null,
       currentIndex: 0,
       currentTextID: "t1",
-      currentText: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"],
+      currentText: ["t","e","s","t"," ","w","o","r","d"," ","o","b","j","e","c","t"],
       keyCodeTable: {
+        32: " ",
         65: "a",
         66: "b",
         67: "c",
@@ -41,12 +42,11 @@ const store = createStore({
         87:	"w",
         88:	"x",
         89:	"y",
-        90:	"z"
+        90:	"z",
       }
     };
   },
   getters: {
-    
     currentIndex(state) {
       return state.currentIndex;
     },
@@ -59,7 +59,7 @@ const store = createStore({
     keyCodeTable(state){
         return state.keyCodeTable;
     },
-    getCurrentText(state){
+    currentText(state){
       return state.currentText;
     }
   },
@@ -68,23 +68,33 @@ const store = createStore({
       context.commit('setCurrentKey', data);
     },
     setCurrentChar (context, data) {
-      context.commit('setCurrentChar', data);
+      const keyCodeTable = context.getters.keyCodeTable 
+      let currentChar = keyCodeTable[data]
+
+      console.log(currentChar)
+      context.commit('setCurrentChar', currentChar);
     },
     checkCurrentChar (context) {
       //If currentChar is correct increase Index by one
       //Check if index is finished, then trigger action for generating new currentText, reset index, etc
       
-      //let currentChar = context.state.currentChar
-      //let currentTextID = context.state.currentTextID
-      let currentNeededChar = context.rootState.texts.texts[0]
-
-      //if(currentKeyChar === )
+      let currentChar = context.getters.currentChar
+      let currentIndex = context.getters.currentIndex
+      let currentNeededChar = context.getters.currentText[currentIndex]
+      
+      
+      if(currentChar === currentNeededChar){
+        console.log(true)
+        context.commit('incrementIndex')
+      } else {
+        console.log(false)
+      }
 
       console.log(currentNeededChar)
     }
   },
   mutations: {
-    increment (state) {
+    incrementIndex (state) {
         state.currentIndex++
     },
     setCurrentKey (state, payload) {

@@ -62,7 +62,7 @@ export default {
 
       this.keysActive[e.keyCode] = true
 
-      console.log(this.keysActive[e.keyCode])
+      //console.log(this.keysActive[e.keyCode])
     },
   keyUpEvent(e) {
       this.keysActive[e.keyCode] = false
@@ -70,7 +70,8 @@ export default {
       let convertedKey = this.convertCodeToString(e.keyCode)
 
       this.$store.dispatch('setCurrentKey', e.keyCode)
-      this.$store.dispatch('setCurrentChar', convertedKey)
+      //this.$store.dispatch('setCurrentChar', convertedKey)
+      this.$store.dispatch('setCurrentChar', e.keyCode)
       this.$store.dispatch('checkCurrentChar')
 
       console.log(e.keyCode)

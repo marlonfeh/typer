@@ -1,7 +1,7 @@
 <template>
   <h2>Text Section</h2>
   <p>{{ getCurrentKey }}</p>
-  <p>{{ getKeyCodeTable }}</p>
+  
   <p>{{ getCurrentText }}</p>
 
   <div>
@@ -13,20 +13,7 @@
 export default {
   data(){
     return {
-        texts: [
-        {
-          id: 't1',
-          lang: "en",
-          wordCount: 3,
-          text: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"]
-        },
-        {
-          id: 't2',
-          lang: "en",
-          wordCount: 3,
-          text: "test word object"
-        },
-      ],
+        
     }
   },
   methods: {
@@ -45,9 +32,8 @@ export default {
     getCurrentKey(){
         return this.$store.getters.currentKey
     },
-    
     getCurrentText() {
-      return this.$store.getters.getCurrentText;
+      return this.$store.getters.currentText;
     },
     
   },

@@ -11,6 +11,14 @@ export default {
           id: 't1',
           lang: "en",
           wordCount: 3,
+          category: "random",
+          text: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"]
+        },
+        {
+          id: 't1',
+          lang: "en",
+          wordCount: 3,
+          category: "tweet",
           text: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"]
         },
       ]
