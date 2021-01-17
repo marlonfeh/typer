@@ -103,6 +103,7 @@ const store = createStore({
           console.log("finished")
           context.commit('resetIndex')
           context.dispatch('setNewText')
+          context.dispatch('setCurrentTextLength')
         }
       }  else {
         console.log(false)
@@ -114,7 +115,13 @@ const store = createStore({
     },
     setNewText(context){
       //Implement Function to choose text generation method
-      context.commit('setRandomText')
+      context.dispatch('setRandomText')
+    },
+    setRandomText(context){
+      const randomText = context.getters["texts/randomText"]
+      console.log(randomText)
+      
+      context.commit('setText', randomText)
     }
   },
   mutations: {
@@ -134,8 +141,9 @@ const store = createStore({
     setCurrentChar (state, payload) {
       state.currentChar = payload;
     },
-    setRandomText(){
-      console.log('Not yet implemented')
+    setText(state, payload){
+      state.currentText = payload;
+
     }
   }
 });

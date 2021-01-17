@@ -12,14 +12,28 @@ export default {
           lang: "en",
           wordCount: 3,
           category: "random",
-          text: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"]
+          text: ["t","e","s","t"," ","w","o","r","d"," ","o","b","j","e","c","t"]
         },
         {
-          id: 't1',
+          id: 't2',
           lang: "en",
           wordCount: 3,
           category: "tweet",
-          text: ["t","e","s","t", " ", "w","o","r","d", " ", "o","b","j","e","c","t"]
+          text: ["t","e","s","t"]
+        },
+        {
+          id: 't3',
+          lang: "en",
+          wordCount: 3,
+          category: "random",
+          text: ["w","o","r","d"]
+        },
+        {
+          id: 't4',
+          lang: "en",
+          wordCount: 3,
+          category: "tweet",
+          text: ["o","b","j","e","c","t"]
         },
       ]
     };
@@ -28,6 +42,3 @@ export default {
   actions,
   getters
 };
-
-
-
